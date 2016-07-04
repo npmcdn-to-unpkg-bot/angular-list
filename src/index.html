@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html ng-app='app'>
+  @@include('./modules/head.html', {
+    "title": "Angular list",
+    "pageType": "main"
+  })
+  <body>
+    <!--[if lt IE 9]>
+    <script src="http://phpbbex.com/oldies/oldies.js" charset="utf-8">
+    <![endif]-->
+  <div class="home-page" ng-controller='ListCtrl'>
+    <div class="home-page__header">
+    @@include('./modules/header.html')
+    </div>
+
+    <ng-view></ng-view>
+
+    <div class="home-page__footer">
+    @@include('./modules/footer.html', {
+      "pageType": "main"
+    })
+    </div>
+  </div>
+
+  </body>
+</html>

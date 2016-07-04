@@ -1,0 +1,22 @@
+<section class='grid-list container'>
+
+  <div class='grid-list__item' ng-repeat='item in data | filter: {title:query}'>
+    <a href="#/item?id={{ item._id }}">
+      <div class='item'>
+        <figure class='item__img'>
+          <img ng-src="{{item.img}}" alt="item img">
+          <figcaption class='item__title'>{{item.title}}</figcaption>
+        </figure>
+        <div class='item__info'>
+          <div class='item__place'>
+            <p><span class='icon'></span>{{item.place}}</p>
+          </div>
+          <div class='item__desc'>
+            <p>{{ item.desc | limitTo:84 }}... <span class='item__more'>more</span></p>
+          </div>
+        </div>
+      </div>
+    </a>
+  </div>
+
+</section>

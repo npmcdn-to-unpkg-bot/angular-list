@@ -1,0 +1,22 @@
+<head lang="en">
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+  <!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>@@title</title>
+  <meta name="author" content="Vlad Yaremenko">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <!-- Place favicon.ico in the root directory -->
+  @@if(pageType === "main") {
+    <link rel="stylesheet" href="style/style.css">
+  }
+  @@if(pageType === "other") {
+    <link rel="stylesheet" href="../style/style.css">
+  }
+</head>

@@ -1,0 +1,19 @@
+{
+  "name": "market",
+  "description": "Base template for front-end developers",
+  "main": "Gulpfile.js",
+  "authors": [
+    "Vlad Yaremenko"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": { 
+  }
+}
