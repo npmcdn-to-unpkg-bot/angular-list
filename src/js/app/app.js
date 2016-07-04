@@ -19,6 +19,7 @@ app.controller('ListCtrl', ['$scope', '$http', '$location', function($scope, $ht
 
   $http({
     method: 'GET',
+    headers: 'Access-Control-Allow-Origin: *',
     url: 'http://beta.json-generator.com/api/json/get/V1xEDZQUW'
   }).then(function(res) {
     $scope.data = res.data; 
