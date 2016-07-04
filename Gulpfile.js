@@ -14,30 +14,40 @@ const gulp = require('gulp'),
 
 const options = {
   src: { 
-    html: ['./src/**/*.html', '!./src/modules/**/*.html'],  
-    style: './src/scss/style.scss', 
-    js: './src/js/**/*.js',
-    img: ['./src/img/**/*.png', './src/img/**/*.jpg', './src/img/**/*.svg'],
-    userfiles: ['./src/userfiles/**/*.png', './src/userfiles/**/*.jpg', './src/userfiles/**/*.svg'],
-    fonts: './src/fonts/**/*.*'
+    server: ['./src/web.js', './src/package.json'],
+    html: ['./src/public/**/*.html', '!./src/public/modules/**/*.html'],  
+    style: './src/public/scss/style.scss', 
+    js: './src/public/js/**/*.js',
+    img: ['./src/public/img/**/*.png', './src/public/img/**/*.jpg', './src/public/img/**/*.svg'],
+    userfiles: ['./src/public/userfiles/**/*.png', './src/public/userfiles/**/*.jpg', './src/public/userfiles/**/*.svg'],
+    fonts: './src/public/fonts/**/*.*'
   },
   watch: { 
-    html: './src/**/*.html',  
-    style: './src/scss/**/*.scss', 
-    js: './src/js/**/*.js',
-    img: ['./src/img/**/*.png', './src/img/**/*.jpg', './src/img/**/*.svg'],
-    userfiles: ['./src/userfiles/**/*.png', './src/userfiles/**/*.jpg', './src/userfiles/**/*.svg'],
-    fonts: './src/fonts/**/*.*'
+    html: './src/public/**/*.html',  
+    style: './src/public/scss/**/*.scss', 
+    js: './src/public/js/**/*.js',
+    img: ['./src/public/img/**/*.png', './src/public/img/**/*.jpg', './src/public/img/**/*.svg'],
+    userfiles: ['./src/public/userfiles/**/*.png', './src/public/userfiles/**/*.jpg', './src/public/userfiles/**/*.svg'],
+    fonts: './src/public/fonts/**/*.*'
   },
   build: {
-    html: './build/',
-    css: './build/style/',
-    js: './build/js/',
-    img: './build/img/',
-    userfiles: './build/userfiles/',
-    fonts: './build/fonts/'
+    server: './build/',
+    html: './build/public/',
+    css: './build/public/style/',
+    js: './build/public/js/',
+    img: './build/public/img/',
+    userfiles: './build/public/userfiles/',
+    fonts: './build/public/fonts/'
   }
 };
+
+
+//-----Server----
+gulp.task('server', function() {
+  return gulp.src(options.src.server)
+    .pipe(plumber())
+    .pipe(gulp.dest(options.build.server));
+});
 
 //-----HTML-----
 gulp.task('html', function() { 
@@ -122,5 +132,5 @@ gulp.task('watch', ['default'], function() {
 });
 
 //----Default----
-gulp.task('default', ['style', 'js', 'html', 'img', 'userfiles', 'fonts']);
+gulp.task('default', ['server', 'style', 'js', 'html', 'img', 'userfiles', 'fonts']);
 
