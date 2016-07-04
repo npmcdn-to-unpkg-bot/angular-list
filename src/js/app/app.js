@@ -33,7 +33,7 @@ app.controller('ItemCtrl', ['$scope', '$http', '$location', function($scope, $ht
 
   $http({
     method: 'GET',
-    url: '/js/data.json'
+    url: 'data.json'
   }).then(function(res) {
     let data = res.data;
     $scope.item = data.filter(function(item) {
