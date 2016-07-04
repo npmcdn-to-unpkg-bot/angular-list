@@ -19,7 +19,8 @@ const options = {
     js: './src/js/**/*.js',
     img: ['./src/img/**/*.png', './src/img/**/*.jpg', './src/img/**/*.svg'],
     userfiles: ['./src/userfiles/**/*.png', './src/userfiles/**/*.jpg', './src/userfiles/**/*.svg'],
-    fonts: './src/fonts/**/*.*'
+    fonts: './src/fonts/**/*.*',
+    json: './src/**/*.json'
   },
   watch: { 
     html: './src/**/*.html',  
@@ -27,7 +28,8 @@ const options = {
     js: './src/js/**/*.js',
     img: ['./src/img/**/*.png', './src/img/**/*.jpg', './src/img/**/*.svg'],
     userfiles: ['./src/userfiles/**/*.png', './src/userfiles/**/*.jpg', './src/userfiles/**/*.svg'],
-    fonts: './src/fonts/**/*.*'
+    fonts: './src/fonts/**/*.*',
+    json: './src/**/*.json'
   },
   build: {
     html: './public/',
@@ -35,9 +37,19 @@ const options = {
     js: './public/js/',
     img: './public/img/',
     userfiles: './public/userfiles/',
-    fonts: './public/fonts/'
+    fonts: './public/fonts/',
+    json: './public/'
   }
 };
+
+//-----JSON-----
+gulp.task('json', function() { 
+  return gulp.src(options.src.json)
+    .pipe(plumber())
+    .pipe(gulp.dest(options.build.json))
+    .pipe(filesize())
+    .pipe(reload({stream: true})); 
+});
 
 //-----HTML-----
 gulp.task('html', function() { 
@@ -70,8 +82,8 @@ gulp.task('style', function() {
 gulp.task('js', function() {
   return gulp.src(options.src.js)
     .pipe(plumber())
-    //.pipe(stripDebug())
-    //.pipe(uglify())
+    .pipe(stripDebug())
+//    .pipe(uglify())
     .pipe(babel({
       presets: ['es2015']
     }))
@@ -122,5 +134,5 @@ gulp.task('watch', ['default'], function() {
 });
 
 //----Default----
-gulp.task('default', ['style', 'js', 'html', 'img', 'userfiles', 'fonts']);
+gulp.task('default', ['json', 'style', 'js', 'html', 'img', 'userfiles', 'fonts']);
 

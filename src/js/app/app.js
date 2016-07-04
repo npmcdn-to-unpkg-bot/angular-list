@@ -19,10 +19,7 @@ app.controller('ListCtrl', ['$scope', '$http', '$location', function($scope, $ht
 
   $http({
     method: 'GET',
-    headers: {
-      'Access-Control-Allow-Origin': '*'
-    },
-    url: 'http://beta.json-generator.com/api/json/get/V1xEDZQUW'
+    url: 'data.json'
   }).then(function(res) {
     $scope.data = res.data; 
   }, function() {
@@ -36,10 +33,7 @@ app.controller('ItemCtrl', ['$scope', '$http', '$location', function($scope, $ht
 
   $http({
     method: 'GET',
-    headers: {
-      'Access-Control-Allow-Origin': '*'
-    },
-    url: 'http://beta.json-generator.com/api/json/get/V1xEDZQUW'
+    url: '/js/data.json'
   }).then(function(res) {
     let data = res.data;
     $scope.item = data.filter(function(item) {
